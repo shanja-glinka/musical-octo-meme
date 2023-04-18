@@ -40,4 +40,18 @@ class TodoValidator
 
         return $taskState;
     }
+
+    public static function makeModelValidate(&$taskText, &$taskState)
+    {
+        $text = \System\Utils\TodoValidator::textValidate($taskText);
+        $state = \System\Utils\TodoValidator::stateValidate($taskState);
+
+        if (!is_numeric($state))
+            $state = null;
+
+        $values = array('Text' => $text, 'State' => $state);
+        $fields = ('Text' . ($state === null ? '' : ',State'));
+
+        return array('values' => $values, 'fields' => $fields);
+    }
 }

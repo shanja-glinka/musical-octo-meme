@@ -31,16 +31,9 @@ final class TodoModel extends \System\Model
 
     public function newTask($text, $state)
     {
-        $text = \System\Utils\TodoValidator::textValidate($text);
-        $state = \System\Utils\TodoValidator::stateValidate($state);
+        $params = \System\Utils\TodoValidator::makeModelValidate($text, $state);
 
-        if (!is_numeric($state))
-            $state = null;
-
-        $values = array('Text' => $text, 'State' => $state);
-        $fields = ('Text' . ($state === null ? '' : ',State'));
-
-        return $this->insert($values, $fields);
+        return $this->insert($params['values'], $params['fields']);
     }
 
 
@@ -51,16 +44,12 @@ final class TodoModel extends \System\Model
 
     public function updateTask($id, $text, $state)
     {
-        $text = \System\Utils\TodoValidator::textValidate($text);
-        $state = \System\Utils\TodoValidator::stateValidate($state);
+        $params = \System\Utils\TodoValidator::makeModelValidate($text, $state);
 
         if ($text === null && $state === null)
             throw new \Exception("'text' or 'state' variable required", 400);
 
-        $values = array('Text' => $text, 'State' => $state);
-        $fields = ('Text' . ($state === null ? '' : ',State'));
-
-        $updateCount = $this->update($values, $fields, 'ID=?d', array($id));
+        $updateCount = $this->update($params['values'], $params['fields'], 'ID=?d', array($id));
 
         return $this->getTask($id);
     }
