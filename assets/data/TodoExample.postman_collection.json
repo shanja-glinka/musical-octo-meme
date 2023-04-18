@@ -1,0 +1,289 @@
+{
+	"info": {
+		"_postman_id": "f76a6f3f-3f57-4efb-be16-04b0f9249847",
+		"name": "TodoExample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "One Task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://musical-octo-meme.c/todo/task/{{TaskId}}",
+					"protocol": "http",
+					"host": [
+						"musical-octo-meme",
+						"c"
+					],
+					"path": [
+						"todo",
+						"task",
+						"{{TaskId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://musical-octo-meme.c/todo/tasks",
+					"protocol": "http",
+					"host": [
+						"musical-octo-meme",
+						"c"
+					],
+					"path": [
+						"todo",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks inwork",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://musical-octo-meme.c/todo/tasks/inwork",
+					"protocol": "http",
+					"host": [
+						"musical-octo-meme",
+						"c"
+					],
+					"path": [
+						"todo",
+						"tasks",
+						"inwork"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks finished",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://musical-octo-meme.c/todo/tasks/finished",
+					"protocol": "http",
+					"host": [
+						"musical-octo-meme",
+						"c"
+					],
+					"path": [
+						"todo",
+						"tasks",
+						"finished"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks State",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://musical-octo-meme.c/todo/tasks/{{taskState}}",
+					"protocol": "http",
+					"host": [
+						"musical-octo-meme",
+						"c"
+					],
+					"path": [
+						"todo",
+						"tasks",
+						"{{taskState}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert Task 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"text\": {{textInsert}}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://musical-octo-meme.c/todo/task",
+					"protocol": "http",
+					"host": [
+						"musical-octo-meme",
+						"c"
+					],
+					"path": [
+						"todo",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert Task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"text\": {{textInsert}}, \"state\": {{taskState}}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://musical-octo-meme.c/todo/task",
+					"protocol": "http",
+					"host": [
+						"musical-octo-meme",
+						"c"
+					],
+					"path": [
+						"todo",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"text\": {{updateText}}, \"state\": 1}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://musical-octo-meme.c/todo/task/2",
+					"protocol": "http",
+					"host": [
+						"musical-octo-meme",
+						"c"
+					],
+					"path": [
+						"todo",
+						"task",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task 2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"text\": \"TODO: Updated 3\", \"state\": \"finished\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://musical-octo-meme.c/todo/task/2",
+					"protocol": "http",
+					"host": [
+						"musical-octo-meme",
+						"c"
+					],
+					"path": [
+						"todo",
+						"task",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://musical-octo-meme.c/todo/task/2",
+					"protocol": "http",
+					"host": [
+						"musical-octo-meme",
+						"c"
+					],
+					"path": [
+						"todo",
+						"task",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "text",
+			"value": "Example todos text"
+		},
+		{
+			"key": "state",
+			"value": "0"
+		},
+		{
+			"key": "TaskId",
+			"value": "2"
+		},
+		{
+			"key": "taskState",
+			"value": "finished"
+		},
+		{
+			"key": "textInsert",
+			"value": "\"TODO: 4\""
+		},
+		{
+			"key": "updateText",
+			"value": "\"4f\""
+		}
+	]
+}
